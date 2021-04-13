@@ -29,6 +29,8 @@
 |**archived**        |Boolean|Добавлена ли Услуга в архив|&mdash;|да
 |**pathName**         |String|Наименование группы, в которую входит Услуга|Только для чтения|да
 |**vat**         |Int|НДС %|&mdash;|нет
+|**vatEnabled**     |Boolean|Включен ли НДС для услуги. С помощью этого флага для услуги можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.|&mdash;|да
+|**useParentVat**   |Boolean|Использует ли услуга НДС с родительской группы|&mdash;|да
 |**effectiveVat**         |Int|Реальный НДС %|Только для чтения|нет
 |**productFolder**         |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Метаданные группы Комплекта|&mdash;|нет
 |**uom**         |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Единицы измерения|&mdash;|нет
@@ -215,6 +217,8 @@ curl -X GET
       "archived": false,
       "pathName": "",
       "vat": 6,
+      "vatEnabled": true,
+      "useParentVat": false,
       "effectiveVat": 6,
       "discountProhibited": false,
       "minPrice": {
@@ -354,6 +358,8 @@ curl -X GET
       "archived": false,
       "pathName": "",
       "vat": 10,
+      "vatEnabled": true,
+      "useParentVat": false,
       "effectiveVat": 10,
       "minPrice": {
         "value": 500,
@@ -575,6 +581,8 @@ curl -X GET
   "archived": false,
   "pathName": "",
   "vat": 10,
+  "vatEnabled": true,
+  "useParentVat": false,
   "effectiveVat": 10,
   "discountProhibited": false,
   "minPrice": {
@@ -747,7 +755,9 @@ curl -X GET
   "code": "pumpkin2",
   "externalCode": "5fZe-Qyji8mSwoHYs7kSA2",
   "archived": false,
-  "pathName": ""
+  "pathName": "",
+  "vatEnabled": false,
+  "useParentVat": true,
 }
 ```
 
@@ -899,6 +909,8 @@ curl -X GET
   "archived": false,
   "pathName": "",
   "vat": 6,
+  "vatEnabled": true,
+  "useParentVat": false,
   "effectiveVat": 6,
   "discountProhibited": false,
   "minPrice": {
@@ -1188,7 +1200,9 @@ curl -X GET
     "code": "pumpkin2",
     "externalCode": "5fZe-Qyji8mSwoHYs7kSA2",
     "archived": false,
-    "pathName": ""
+    "pathName": "",
+    "vatEnabled": false,
+    "useParentVat": true
   },
   {
     "meta": {
@@ -1224,6 +1238,8 @@ curl -X GET
     "archived": false,
     "pathName": "",
     "vat": 11,
+    "vatEnabled": true,
+    "useParentVat": false,
     "effectiveVat": 11,
     "discountProhibited": false,
     "minPrice": {
@@ -1519,6 +1535,8 @@ curl -X GET
   "archived": false,
   "pathName": "",
   "vat": 6,
+  "vatEnabled": true,
+  "useParentVat": false,
   "effectiveVat": 6,
   "discountProhibited": false,
   "minPrice": {
@@ -1769,6 +1787,8 @@ curl -X GET
    "archived": false,
    "pathName": "",
    "vat": 11,
+   "vatEnabled": true,
+   "useParentVat": false,
    "effectiveVat": 11,
    "discountProhibited": false,
    "minPrice": {
@@ -2005,6 +2025,8 @@ curl -X GET
   "archived": false,
   "pathName": "Услуги компании",
   "vat": 6,
+  "vatEnabled": true,
+  "useParentVat": false,
   "effectiveVat": 6,
   "productFolder": {
     "meta": {

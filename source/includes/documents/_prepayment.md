@@ -72,6 +72,7 @@
 |**price**          |Float|Цена товара/услуги в копейках|&mdash;|да
 |**discount**          |Int|Процент скидки или наценки. Наценка указывается отрицательным числом, т.е. -10 создаст наценку в 10%|&mdash;|да
 |**vat**        |Int|НДС, которым облагается текущая позиция|&mdash;|да
+|**vatEnabled**     |Boolean|Включен ли НДС для позиции. С помощью этого флага для позиции можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.|&mdash;|да
 |**assortment**              |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Метаданные товара/услуги/серии/модификации, которую представляет собой позиция|&mdash;|да
 |**pack**            |String(255)|Упаковка товара|&mdash;|нет
 
@@ -605,6 +606,7 @@ curl -X GET
       "price": 15000,
       "discount": 0,
       "vat": 20,
+      "vatEnabled": true,
       "assortment": {
         "meta": {
           "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/58e50cd3-366a-11e9-ac12-000b00000036",
@@ -655,6 +657,7 @@ curl -X GET
   "price": 15000,
   "discount": 0,
   "vat": 20,
+  "vatEnabled": true,
   "assortment": {
     "meta": {
       "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/58e50cd3-366a-11e9-ac12-000b00000036",

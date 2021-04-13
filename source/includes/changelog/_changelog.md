@@ -126,6 +126,12 @@
 <a name="lastchanges"></a>
 Список последних изменений в API Remap 1.2
 
+<<<<<<< HEAD:source/includes/_changelog.md
+### 22-01-2021
+#### Изменено
+- Добавлены поля `vatEnabled` и `useParentVat` в [Группы товаров](https://dev.moysklad.ru/doc/api/remap/1.2/dictionaries/#suschnosti-gruppa-towarow), [Товары](https://dev.moysklad.ru/doc/api/remap/1.2/dictionaries/#suschnosti-towar), [Комплекты](https://dev.moysklad.ru/doc/api/remap/1.2/dictionaries/#suschnosti-komplekt), [Услуги](https://dev.moysklad.ru/doc/api/remap/1.2/dictionaries/#suschnosti-usluga)
+- Добавлено поле `vatEnabled` в позиции [Документов](https://dev.moysklad.ru/doc/api/remap/1.2/documents/)
+=======
 ### 09-04-2021
 #### Документация
 - Переработан раздел [Работа с доп. полями](https://dev.moysklad.ru/doc/api/remap/1.2/#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
@@ -187,6 +193,7 @@
 - Удалено описание полей объекта доп. полей из документов. 
   Его по-прежнему можно найти в разделе [Работа с доп. полями](https://dev.moysklad.ru/doc/api/remap/1.2/#mojsklad-json-api-obschie-swedeniq-rabota-s-dopolnitel-nymi-polqmi)
 - Исправлен ряд опечаток в этом разделе
+>>>>>>> origin/master:source/includes/changelog/_changelog.md
 
 ### 20-01-2021
 #### Изменено

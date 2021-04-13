@@ -62,6 +62,7 @@
 |**quantity**          |Int|Количество товаров/услуг данного вида в позиции. Если позиция - товар, у которого включен учет по серийным номерам, то значение в этом поле всегда будет равно количеству серийных номеров для данной позиции в документе.|&mdash;|да
 |**price**          |Float|Цена товара/услуги в копейках|&mdash;|да
 |**vat**        |Int|НДС, которым облагается текущая позиция|&mdash;|да
+|**vatEnabled**     |Boolean|Включен ли НДС для позиции. С помощью этого флага для позиции можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.|&mdash;|да
 |**assortment**              |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Метаданные товара/услуги/серии/модификации, которую представляет собой позиция|&mdash;|да
 |**pack**            |String(255)|Упаковка товара|&mdash;|нет
 |**reward**      |String(255)|Вознаграждение|&mdash;| нет
@@ -1722,6 +1723,7 @@ curl -X GET
       "quantity": 1,
       "price": 0,
       "vat": 0,
+      "vatEnabled": false,
       "assortment": {
         "meta": {
           "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/ca976541-96d1-11e6-8a84-bae50000002e",
@@ -1823,6 +1825,7 @@ curl -X GET
     "quantity": 15,
     "price": 1300,
     "vat": 0,
+    "vatEnabled": false,
     "assortment": {
       "meta": {
         "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/36edadbe-912b-11e6-8a84-bae500000128",
@@ -1845,6 +1848,7 @@ curl -X GET
     "quantity": 15,
     "price": 1020,
     "vat": 0,
+    "vatEnabled": false,
     "assortment": {
       "meta": {
         "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/36edadbe-912b-11e6-8a84-bae500000128",
@@ -1867,6 +1871,7 @@ curl -X GET
     "quantity": 15,
     "price": 101,
     "vat": 0,
+    "vatEnabled": false,
     "assortment": {
       "meta": {
         "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/36edadbe-912b-11e6-8a84-bae500000128",
@@ -1935,6 +1940,7 @@ curl -X GET
   "quantity": 1,
   "price": 0,
   "vat": 0,
+  "vatEnabled": false,
   "assortment": {
     "meta": {
       "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/ca976541-96d1-11e6-8a84-bae50000002e",
@@ -1997,6 +2003,7 @@ curl -X GET
   "quantity": 14,
   "price": 1301,
   "vat": 10,
+  "vatEnabled": true,
   "assortment": {
     "meta": {
       "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/36edadbe-912b-11e6-8a84-bae500000128",

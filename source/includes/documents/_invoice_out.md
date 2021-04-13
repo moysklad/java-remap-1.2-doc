@@ -62,6 +62,7 @@
 |**price**          |Float|Цена товара/услуги в копейках|&mdash;|да
 |**discount**          |Int|Процент скидки или наценки. Наценка указывается отрицательным числом, т.е. -10 создаст наценку в 10%|&mdash;|да
 |**vat**        |Int|НДС, которым облагается текущая позиция|&mdash;|да
+|**vatEnabled**     |Boolean|Включен ли НДС для позиции. С помощью этого флага для позиции можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.|&mdash;|да
 |**assortment**              |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Метаданные товара/услуги/серии/модификации, которую представляет собой позиция|&mdash;|да
 |**pack**            |String(255)|Упаковка товара|&mdash;|нет
 
@@ -1768,6 +1769,7 @@ curl -X GET
         "price": 90000,
         "discount": 0,
         "vat": 0,
+        "vatEnabled": false,
         "assortment": {
           "meta": {
             "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/b5d328b3-cab0-11e7-6a80-332a0000000d",
@@ -2440,6 +2442,7 @@ curl -X GET
       "price": 200,
       "discount": 0,
       "vat": 0,
+      "vatEnabled": false,
       "assortment": {
         "meta": {
           "href": "https://online.moysklad.ru/api/remap/1.2/entity/product/be903062-f504-11e5-8a84-bae50000019a",
@@ -2510,6 +2513,7 @@ curl -X GET
     "price": 999,
     "discount": 1,
     "vat": 0,
+    "vatEnabled": false,
     "assortment": {
       "meta": {
         "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
@@ -2560,6 +2564,7 @@ curl -X GET
   "price": 999,
   "discount": 1,
   "vat": 0,
+  "vatEnabled": false,
   "assortment": {
     "meta": {
       "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",
@@ -2615,6 +2620,7 @@ curl -X GET
   "price": 1000,
   "discount": 0,
   "vat": 0,
+  "vatEnabled": false,
   "assortment": {
     "meta": {
       "href": "https://online.moysklad.ru/api/remap/1.2/entity/variant/671402e4-f7d2-11e5-8a84-bae50000007c",

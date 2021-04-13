@@ -25,6 +25,8 @@
 |**archived**        |Boolean|Добавлена ли Группа товаров в архив|Только для чтения|да
 |**pathName**         |String|Наименование Группы товаров, в которую входит данная Группа товаров|Только для чтения|да
 |**vat**         |Int|НДС %|&mdash;|нет
+|**vatEnabled**     |Boolean|Включен ли НДС для группы. С помощью этого флага для группы можно выставлять НДС = 0 или НДС = "без НДС". (vat = 0, vatEnabled = false) -> vat = "без НДС", (vat = 0, vatEnabled = true) -> vat = 0%.|&mdash;|да
+|**useParentVat**   |Boolean|Использует ли группа НДС с родительской группы|&mdash;|да
 |**effectiveVat**         |Int|Реальный НДС %|Только для чтения|нет
 |**productFolder**         |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Ссылка на Группу товаров, в которую входит данная Группа товаров, в формате Метаданных|&mdash;|нет
 |**taxSystem**         |Enum|Код системы налогообложения. [Подробнее тут](../dictionaries/#suschnosti-gruppa-towarow-kod-sistemy-nalogooblozheniq)|&mdash;|нет
@@ -123,7 +125,9 @@ curl -X GET
       "code": "13321Fruits1",
       "externalCode": "mRQao-5IgY3soIY1EaI083",
       "archived": false,
-      "pathName": ""
+      "pathName": "",
+      "vatEnabled": false,
+      "useParentVat": true
     },
     {
       "meta": {
@@ -141,6 +145,8 @@ curl -X GET
       "archived": false,
       "pathName": "",
       "vat": 3,
+      "vatEnabled": true,
+      "useParentVat": false,
       "effectiveVat": 3,
       "taxSystem": "GENERAL_TAX_SYSTEM"
     }
@@ -204,7 +210,9 @@ curl -X GET
   "code": "13321Fruits1",
   "externalCode": "mRQao-5IgY3soIY1EaI083",
   "archived": false,
-  "pathName": ""
+  "pathName": "",
+  "vatEnabled": false,
+  "useParentVat": true
 }
 ```
 
@@ -261,6 +269,8 @@ curl -X GET
   "archived": false,
   "pathName": "",
   "vat": 3,
+  "vatEnabled": true,
+  "useParentVat": false,
   "effectiveVat": 3
 }
 ```
@@ -333,7 +343,9 @@ curl -X GET
     "code": "13321Fruits1",
     "externalCode": "mRQao-5IgY3soIY1EaI083",
     "archived": false,
-    "pathName": ""
+    "pathName": "",
+    "vatEnabled": false,
+    "useParentVat": true,
   },
   {
     "meta": {
@@ -368,6 +380,8 @@ curl -X GET
     "archived": false,
     "pathName": "",
     "vat": 5,
+    "vatEnabled": true,
+    "useParentVat": false,
     "effectiveVat": 5
   }
 ]
@@ -563,7 +577,9 @@ curl -X GET
   "code": "13321Fruits1",
   "externalCode": "mRQao-5IgY3soIY1EaI083",
   "archived": false,
-  "pathName": ""
+  "pathName": "",
+  "vatEnabled": false,
+  "useParentVat": true,
 }
 ```
 
@@ -634,6 +650,8 @@ curl -X GET
   "archived": false,
   "pathName": "",
   "vat": 5,
+  "vatEnabled": true,
+  "useParentVat": false,
   "effectiveVat": 5
 }
 ```
