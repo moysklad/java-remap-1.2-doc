@@ -50,6 +50,7 @@ includes:
   - dictionaries/task
   - dictionaries/states  
   - dictionaries/characteristic
+  - dictionaries/named_filter
   
 search: true
 ---  
