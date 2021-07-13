@@ -326,6 +326,7 @@ curl -X PUT
 | **NotificationRetailShiftOpened**       | Розничная торговля    | Открыта смена |
 | **NotificationRetailShiftClosed**       | Розничная торговля    | Закрыта смена |
 | **NotificationScript**       | Сценарии    | Уведомление из сценария |
+| **FacebookTokenExpirationNotification** | Интернет-магазины     | О скором окончании действия доступа к аккаунту Facebook |
 
 ## Подробное описание типов уведомлений
 
@@ -1943,6 +1944,58 @@ curl -X GET
 }
 ```
 
+### Предупреждение о скором окончании действия доступа к аккаунту Facebook
+#### Тип уведомления
+FacebookTokenExpirationNotification - предупреждение о скором окончании действия доступа к аккаунту Facebook
+#### Атрибуты уведомления
+
+| Название  | Тип | Описание                    | Свойство поля в запросе| Обязательное при ответе|
+| --------- |:----|:----------------------------|:----------------|:------------------------|
+|**meta**               |[Meta](../#mojsklad-json-api-obschie-swedeniq-metadannye)|Метаданные объекта|Необходимое при создании|да
+|**id**                 |UUID|ID Уведомления|Необходимое при создании|да
+|**accountId**          |UUID| ID учетной записи|Необходимое при создании|да
+|**created**            |DateTime|Дата и время формирования Уведомления|Необходимое при создании|да
+|**read**        |Boolean|Признак того, было ли Уведомление прочитано|Необходимое при создании|да
+|**title**       |String(255)|Краткий текст уведомления|Необходимое при создании| да
+|**description**       |String(4096)|Описание уведомления|Необходимое при создании| да
+|**connectorName**       |String(4096)|Название коннектора "Instagram and Facebook"|&mdash;| да
+|**daysLeftToExpiration**       |Int|Количество дней, оставшихся до окончания действия доступа к аккаунту Facebook|&mdash;| да
+
+**Параметры**
+
+|Параметр   |Описание   | 
+|:----|:----|
+|**id** |  `string` (required) *Example: 9596251d-da73-11eb-ac12-000c00000015* id Уведомления.|
+
+> Запрос на получение Уведомления с указанным id.
+
+```shell
+curl -X GET
+  "https://online.moysklad.ru/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015"
+  -H "Authorization: Basic <Credentials>"
+```
+
+> Response 200 (application/json)
+Успешный запрос. Результат - JSON представление Уведомления.
+
+```json
+{
+  "meta": {
+    "href": "https://online.moysklad.ru/api/remap/1.2/notification/9596251d-da73-11eb-ac12-000c00000015",
+    "type": "FacebookTokenExpirationNotification",
+    "mediaType": "application/json"
+  },
+  "id": "9596251d-da73-11eb-ac12-000c00000015",
+  "accountId": "54148a9e-d8fa-11eb-ac12-000b00000001",
+  "created": "2021-07-01 16:52:33",
+  "read": true,
+  "title": "Обновите привязку к Facebook",
+  "description": "Для правильной работы магазина Instagram shop доступ к аккаунту нужно обновлять каждые 60 дней — просто нажмите на кнопку в настройках. Дней до остановки синхронизации: 5",
+  "connectorName": "Instagram shop",
+  "daysLeftToExpiration": 5
+}
+```
+
 ## Настройки уведомлений
 ### Атрибуты сущности
 + **groups** - Подписка на уведомления по группам
@@ -2006,6 +2059,10 @@ curl -X GET
     "scripts" : {
       "enabled" : true,
       "channels" : [ "email", "push" ]
+    },
+    "online_stores" : {
+      "enabled" : true,
+      "channels" : [ "email", "push" ]
     }
   }
 }
@@ -2050,6 +2107,10 @@ curl -X GET
                 "channels" : [ "email", "push" ]
               },
               "scripts" : {
+                "enabled" : true,
+                "channels" : [ "email", "push" ]
+              },
+              "online_stores" : {
                 "enabled" : true,
                 "channels" : [ "email", "push" ]
               }
